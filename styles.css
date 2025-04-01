@@ -1,0 +1,115 @@
+/* General Dark Theme */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ddd;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    border: 2px solid #444;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 90%;
+    background-color: #333;
+    border: 2px solid #666;
+    border-radius: 5px;
+    color: #fff;
+}
+
+input:focus {
+    outline: none;
+    border-color: #ff4081;
+    background-color: #444;
+}
+
+button {
+    background-color: #ff4081;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #f50057;
+}
+
+#flamesAnimation {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    display: inline-block;
+}
+
+#flamesText {
+    font-size: 32px;
+    color: #ff4081;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#flamesResult {
+    font-size: 24px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+#nameProcessing {
+    font-size: 20px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+/* Striking Animation for FLAMES Text */
+@keyframes letterStrike {
+    0% {
+        opacity: 1;
+        text-decoration: none;
+    }
+    100% {
+        opacity: 1;
+        text-decoration: line-through;
+    }
+}
+
+/* Specific Background Colors for Results */
+.friendship {
+    background-color: #42a5f5; /* Blue */
+}
+
+.love {
+    background-color: #e91e63; /* Pink */
+}
+
+.affection {
+    background-color: #ffeb3b; /* Yellow */
+}
+
+.marriage {
+    background-color: #8bc34a; /* Green */
+}
+
+.enemy {
+    background-color: #f44336; /* Red */
+}
+
+.sibling {
+    background-color: #ff9800; /* Orange */
+}
