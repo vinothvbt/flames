@@ -3,21 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLAMES Game</title>
+    <title>🔥 FLAMES - Love Calculator 💕</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>FLAMES Game</h1>
-        <form id="flamesForm">
-            <input type="text" id="name1" placeholder="Enter First Name" required />
-            <input type="text" id="name2" placeholder="Enter Second Name" required />
-            <button type="submit">Calculate</button>
-        </form>
-        <div id="nameProcessing"></div>
-        <div id="flamesText"></div>
-        <div id="flamesResult"></div>
-        <div id="flamesAnimation"></div>
+    <!-- Background particles -->
+    <div class="background-particles"></div>
+    
+    <!-- Floating hearts -->
+    <div class="floating-hearts"></div>
+    
+    <div class="main-container">
+        <div class="container">
+            <!-- Header with animated title -->
+            <div class="header">
+                <h1 class="main-title">
+                    <span class="letter">🔥</span>
+                    <span class="letter">F</span>
+                    <span class="letter">L</span>
+                    <span class="letter">A</span>
+                    <span class="letter">M</span>
+                    <span class="letter">E</span>
+                    <span class="letter">S</span>
+                    <span class="letter">💕</span>
+                </h1>
+                <p class="subtitle">Discover your relationship destiny!</p>
+            </div>
+
+            <!-- Input form with glassmorphism -->
+            <form id="flamesForm" class="flames-form">
+                <div class="input-group">
+                    <i class="fas fa-user input-icon"></i>
+                    <input type="text" id="name1" placeholder="Enter First Name" required />
+                    <div class="input-glow"></div>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-heart input-icon"></i>
+                    <input type="text" id="name2" placeholder="Enter Second Name" required />
+                    <div class="input-glow"></div>
+                </div>
+                <button type="submit" class="calculate-btn">
+                    <span class="btn-text">Calculate Love ✨</span>
+                    <div class="btn-ripple"></div>
+                </button>
+            </form>
+
+            <!-- Loading animation -->
+            <div id="loadingContainer" class="loading-container">
+                <div class="loading-hearts">
+                    <div class="heart"></div>
+                    <div class="heart"></div>
+                    <div class="heart"></div>
+                </div>
+                <div id="nameProcessing" class="processing-text"></div>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- FLAMES calculation animation -->
+            <div id="flamesContainer" class="flames-container">
+                <div id="flamesText" class="flames-letters"></div>
+                <div class="calculation-steps"></div>
+            </div>
+
+            <!-- Result display with memes -->
+            <div id="resultContainer" class="result-container">
+                <div id="flamesResult" class="result-content"></div>
+                <div class="meme-container">
+                    <img id="resultMeme" class="result-meme" alt="Result Meme" />
+                </div>
+                <div class="celebration-particles"></div>
+                <button id="tryAgainBtn" class="try-again-btn">
+                    <i class="fas fa-redo"></i> Try Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sound toggle -->
+    <div class="sound-toggle">
+        <button id="soundToggle" class="sound-btn">
+            <i class="fas fa-volume-up"></i>
+        </button>
     </div>
 
     <script src="script.js"></script>
