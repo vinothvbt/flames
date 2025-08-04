@@ -248,14 +248,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateBackgroundTheme(result) {
         const body = document.body;
         
-        // Apply new theme with gradient backgrounds
+        // Apply new theme with gradient backgrounds - improved color psychology
         const themes = {
-            'Friendship': 'linear-gradient(135deg, #42a5f5 0%, #478ed1 50%, #4fc3f7 100%)',
-            'Love': 'linear-gradient(135deg, #e91e63 0%, #ff6b9d 50%, #ff8a95 100%)',
-            'Affection': 'linear-gradient(135deg, #ffeb3b 0%, #ffc107 50%, #ff9800 100%)',
-            'Marriage': 'linear-gradient(135deg, #8bc34a 0%, #66bb6a 50%, #4caf50 100%)',
-            'Enemy': 'linear-gradient(135deg, #f44336 0%, #e53935 50%, #c62828 100%)',
-            'Sibling': 'linear-gradient(135deg, #ff9800 0%, #ff7043 50%, #ff5722 100%)'
+            'Friendship': 'linear-gradient(135deg, #3498db 0%, #5dade2 50%, #85c1e9 100%)', // Trust & loyalty blues
+            'Love': 'linear-gradient(135deg, #e74c3c 0%, #ec7063 50%, #f1948a 100%)', // Passionate romantic reds
+            'Affection': 'linear-gradient(135deg, #e8b4f0 0%, #d7bde2 50%, #c39bd3 100%)', // Gentle caring purples
+            'Marriage': 'linear-gradient(135deg, #f8f9fa 0%, #f5deb3 50%, #daa520 100%)', // Pure white to gold elegance
+            'Enemy': 'linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #5d6d7e 100%)', // Dark stormy grays
+            'Sibling': 'linear-gradient(135deg, #f39c12 0%, #f5b041 50%, #f7dc6f 100%)' // Warm family yellows
         };
         
         body.style.background = themes[result];
@@ -265,20 +265,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const celebrationContainer = document.querySelector('.celebration-particles');
         
         if (result === 'Love' || result === 'Marriage') {
-            createHeartExplosion(celebrationContainer);
+            createHeartExplosion(celebrationContainer, result);
         } else if (result === 'Friendship') {
             createConfetti(celebrationContainer);
         } else if (result === 'Enemy') {
-            createFireworks(celebrationContainer, '#ff4444');
+            createFireworks(celebrationContainer, '#5d6d7e'); // Match new Enemy theme
+        } else if (result === 'Affection') {
+            createStarBurst(celebrationContainer, ['#e8b4f0', '#d7bde2', '#c39bd3']); // Purple theme
+        } else if (result === 'Sibling') {
+            createStarBurst(celebrationContainer, ['#f39c12', '#f5b041', '#f7dc6f']); // Yellow theme
         } else {
             createStarBurst(celebrationContainer);
         }
     }
 
-    function createHeartExplosion(container) {
+    function createHeartExplosion(container, result) {
+        const heartEmojis = result === 'Love' ? ['❤️', '💕', '💖'] : ['💒', '👰', '🤵', '💍']; // Different hearts for Love vs Marriage
+        
         for (let i = 0; i < 20; i++) {
             const heart = document.createElement('div');
-            heart.innerHTML = '💕';
+            heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
             heart.style.position = 'absolute';
             heart.style.left = '50%';
             heart.style.top = '50%';
@@ -299,7 +305,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function createConfetti(container) {
-        const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffd93d'];
+        // Friendship colors - blues that match the new theme
+        const colors = ['#3498db', '#5dade2', '#85c1e9', '#aed6f1', '#d6eaf8'];
         
         for (let i = 0; i < 30; i++) {
             const confetti = document.createElement('div');
@@ -317,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    function createStarBurst(container) {
+    function createStarBurst(container, colors = ['#ffd700', '#ffed4e', '#f1c40f']) {
         for (let i = 0; i < 15; i++) {
             const star = document.createElement('div');
             star.innerHTML = '⭐';
@@ -325,6 +332,7 @@ document.addEventListener('DOMContentLoaded', function() {
             star.style.left = '50%';
             star.style.top = '50%';
             star.style.fontSize = Math.random() * 15 + 8 + 'px';
+            star.style.color = colors[Math.floor(Math.random() * colors.length)];
             star.style.animation = `starBurst 1.5s ease-out ${Math.random() * 0.3}s forwards`;
             container.appendChild(star);
             
